@@ -99,7 +99,6 @@
     });
     $("#submit_testimonial").click(()=>{
         //Validation
-        $("#loading").show();
         let name = $("#fullname").val(),email = $("#email").val(),address = $("#address").val(),number = $("#number").val();
         if(name.trim().length < 3 || email.trim().length < 4 || address.trim().length < 4 || number.trim().length !== 10){
             alert("Please Fill all the details properly");
@@ -115,6 +114,7 @@
             alert("Email address not valid");
             return;
         }
+        $("#loading").show();
         let testimonial_form=new FormData($('#testimonial_form')[0]);
         $.ajax({
             url: "https://testimonialapp.herokuapp.com/controller/user.php?requesting=1",
